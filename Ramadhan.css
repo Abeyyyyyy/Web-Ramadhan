@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  overflow-x: hidden;
+  height: 100%;
+  background-color: #D67C1C;
+  text-align: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #000;
+}
+.nav-left, .nav-right {
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+}
+.nav-center {
+  flex-grow: 1;
+  text-align: center;
+  margin-top: 1.5vh;
+}
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+.active {
+  background-color: #FCE6A4;
+  color: black;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+
+/* Animasi fade-in dan fade-out */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 3;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 3;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+/* Kelas animasi */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  display: block;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+
+.container {
+  flex: 1;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.container h2::after{
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background: black;
+  margin: 8px auto 0;
+}
+
+.video-container {
+  margin: 20px auto;
+  width: 60%;
+  aspect-ratio: 16 / 9;
+  background: #ccc;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a1d0f; /* Sesuai dengan tema footer */
+  padding: 20px;
+  color: white;
+  font-size: 17px;
+}
+
+.footer-img {
+  width: 60px;  /* Ukuran gambar */
+  height: 60px;
+  border-radius: 50%; /* Membuat lingkaran */
+  object-fit: cover; /* Menyesuaikan gambar dalam lingkaran */
+}
+
+.footer-content {
+  text-align: center;
+  flex-grow: 1; /* Agar teks berada di tengah */
+}
+
+.footer-content a {
+  color: rgb(255, 255, 255); /* Warna default */
+  text-decoration: none; /* Menghapus garis bawah */
+  font-weight: bold;
+}
+
+.footer-content a:hover {
+  color: #D98324; /* Warna hover */
+}
+
+
+/* Scrollbar untuk browser berbasis WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #f7e6a2; /* Warna latar belakang scrollbar */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #D98324, #000000); /* Gradasi hijau */
+  border-radius: 10px;
+  border: 2px solid #f7e6a2;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #F2F6D0, #D98324);
+}

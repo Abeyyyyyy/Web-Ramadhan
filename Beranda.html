@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda</title>
+  <link rel="stylesheet" href="Beranda.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+        <a href="Beranda.html" class="nav-item active">Beranda</a>
+        <a href="#" class="nav-item">Tentang</a>
+        <a href="Jadwal.html" class="nav-item">Jadwal</a>
+    </div>
+
+    <div class="nav-center">
+        <a href="Ramadhan.html" class="nav-item ">Ramadhan</a>
+    </div>
+    
+    <div class="nav-right">
+        <a href="#" class="nav-item">Doa</a>
+        <a href="#" class="nav-item">Kontak</a>
+        <a href="#" class="nav-item">Lainnya</a>
+    </div>
+</nav>
+
+<div class="container">
+  <div class="image-placeholder"></div>
+  <div class="text-content">
+      <h1>Marhaban Ya Ramadhan</h1>
+      <hr>
+      <p>Sambut bulan penuh berkah dengan hati yang bersih dan ibadah yang khusyuk.</p>
+  </div>
+</div>
+<div class="content-box">
+  <p>Ramadhan adalah bulan suci yang penuh dengan rahmat dan ampunan. Ini adalah waktu yang tepat untuk meningkatkan ibadah, berbagi dengan sesama, dan mempererat silaturahmi. Mari jalani Ramadhan dengan penuh keikhlasan dan keberkahan.</p>
+  <div class="info-text">
+      <span>- <a href="#">Lihat Jadwal </a>-</span>
+      <span>- <a href="#">Doa-Doa Bulan Ramadhan </a>-</span>
+  </div>
+</div>
+
+ <!-- Footer -->
+ <div class="content">
+    <h1>Welcome to Our Website!</h1>
+    <p>Explore our services and more.</p>
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Pelayanan</h3>
+            <ul>
+                <li><a href="#">Layanan Pelanggan</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Bantuan Teknis</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Akun</h3>
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Registrasi</a></li>
+                <li><a href="#">Pengaturan Akun</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Kontak</h3>
+            <ul>
+                <li><a href="mailto:info@example.com">info@example.com</a></li>
+                <li><a href="#">+123 456 7890</a></li>
+                <li><a href="#">Alamat Perusahaan</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Sosial Media</h3>
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Informasi Lainnya</h3>
+            <ul>
+                <li><a href="#">Kebijakan Privasi</a></li>
+                <li><a href="#">Syarat dan Ketentuan</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Ramadhan. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Tambahkan efek slide-in ke halaman saat dimuat
+    document.body.classList.add("fade-in");
+
+    // Tangkap semua link navbar
+    let navLinks = document.querySelectorAll(".nav-item");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Cegah perpindahan langsung
+
+            let targetUrl = this.href; // Ambil URL tujuan
+            
+            // Tambahkan animasi keluar
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+                window.location.href = targetUrl; // Pindah halaman setelah animasi selesai
+            }, 800); // Delay sesuai durasi animasi
+        });
+    });
+});
+</script>
+
+</body>
+</html>

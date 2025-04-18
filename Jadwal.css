@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #D67C1C;
+    text-align: center;
+}
+
+:root {
+    --bg-color: #D67C1C;
+    --text-color: #333;
+    --card-bg: #fff;
+    --header-bg: #3a1d0f;
+    --table-header: #e0f2f1;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --header-bg: #3a1d0f;
+    --table-header: #263238;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #000;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 15px;
+    font-size: 17px;
+}
+
+.nav-center {
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 1.5vh;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.active {
+    background-color: #FCE6A4;
+    color: black;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+
+/* Animasi fade-in dan fade-out */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 3;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 3;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Kelas animasi */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+    display: block;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.jadwal-sholat,
+.kalender-puasa,
+.fitur-tambahan {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    background-color: var(--table-header);
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--header-bg);
+    color: white;
+}
+
+.toggle-btn {
+    margin-top: 10px;
+    background: #D67C1C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.print-btn {
+    margin-top: 10px;
+    background: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Scrollbar untuk browser berbasis WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f7e6a2; /* Warna latar belakang scrollbar */
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #D98324, #000000); /* Gradasi hijau */
+    border-radius: 10px;
+    border: 2px solid #f7e6a2;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #F2F6D0, #D98324);
+  }

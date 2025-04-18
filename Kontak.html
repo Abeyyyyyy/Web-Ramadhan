@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak</title>
+    <link rel="stylesheet" href="Kontak.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="Beranda.html" class="nav-item">Beranda</a>
+            <a href="#" class="nav-item">Tentang</a>
+            <a href="Jadwal.html" class="nav-item">Jadwal</a>
+        </div>
+        <div class="nav-center">
+            <a href="Ramadhan.html" class="nav-item">Ramadhan</a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-item">Doa</a>
+            <a href="Kontak.html" class="nav-item active">Kontak</a>
+            <a href="#" class="nav-item">Lainnya</a>
+        </div>
+    </nav>
+
+    <header>
+        Selamat Datang di Website Profil Ramadhan!
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <div class="text">
+                <h2>Abiyya Hamdan Nurwandha</h2>
+                <hr>
+                <p>
+                    Halo! Nama saya Abiyya Hamdan Nurwandha, biasa dipanggil Abey. Website ini dibuat untuk mengenalkan
+                    tentang bulan suci Ramadhan dan berbagai aktivitas positif yang bisa kita lakukan selama bulan
+                    tersebut. Jangan ragu untuk bertanya di halaman ini ya!
+                </p>
+                <button
+                    onclick="alert('Abiyya adalah siswa SMKN 4 Bandung, jurusan RPL. Hobi menggambar dan membuat konten kreatif.')">Profil</button>
+                <button
+                    onclick="alert('Saya suka berbagi pengetahuan tentang Ramadhan. Selamat menikmati website ini!')">Tentang
+                    Saya</button>
+            </div>
+            <div class="photo">
+                <div class="circle">Foto Profil</div>
+                <div class="contact">
+                    <a href="#">hamdanabiyya@gmail.com</a> <br>
+                    <a href="#">+62 882 0025 42889</a><br>
+                    <a href="#">lookmyart_01</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chatbox">
+        <div class="chat-header">
+            <span>🗑️ 🔁</span>
+            <h3>Tanya Ramadhan</h3>
+            <span>🔖 🔗</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div id="response"></div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Ketik pertanyaan seputar Ramadhan...">
+            <button onclick="jawabPertanyaan()" class="chat-send-btn">➤</button>
+        </div>
+    </div>
+
+    <footer>
+        Terima kasih sudah berkunjung. Semoga bermanfaat!
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Tambahkan efek slide-in ke halaman saat dimuat
+            document.body.classList.add("fade-in");
+
+            // Tangkap semua link navbar
+            let navLinks = document.querySelectorAll(".nav-item");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault(); // Cegah perpindahan langsung
+
+                    let targetUrl = this.href; // Ambil URL tujuan
+
+                    // Tambahkan animasi keluar
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = targetUrl; // Pindah halaman setelah animasi selesai
+                    }, 800); // Delay sesuai durasi animasi
+                });
+            });
+        });
+
+
+
+        function jawabPertanyaan() {
+            const input = document.getElementById("chatInput").value.toLowerCase();
+            let jawaban = "Maaf, saya belum paham pertanyaannya.";
+
+            if (input.includes("kegiatan ramadhan")) {
+                jawaban = "Beberapa kegiatan Ramadhan: puasa, shalat tarawih, tadarus Al-Qur'an, berbagi dengan sesama, dan iktikaf.";
+            } else if (input.includes("ramadhan itu apa")) {
+                jawaban = "Ramadhan adalah bulan suci dalam Islam yang penuh berkah, di mana umat Islam berpuasa dan meningkatkan ibadah.";
+            } else if (input.includes("amalan")) {
+                jawaban = "Amalan yang dianjurkan di bulan Ramadhan antara lain: membaca Al-Qur'an, sedekah, dzikir, shalat malam, dan berbuat baik.";
+            } else if (input.includes("puasa")) {
+                jawaban = "Puasa adalah menahan diri dari makan, minum, dan hal-hal yang membatalkan sejak fajar hingga maghrib.";
+            }
+
+            document.getElementById('response').innerHTML = `<p><strong>Pertanyaan:</strong> ${input}</p><p><strong>Jawaban:</strong> ${jawaban}</p>`;
+            document.getElementById("chatInput").value = "";
+        }
+    </script>
+</body>
+
+</html>

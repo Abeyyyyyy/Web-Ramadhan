@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Sholat & Kalender Puasa Ramadhan</title>
+    <link rel="stylesheet" href="Jadwal.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="Beranda.html" class="nav-item">Beranda</a>
+            <a href="#" class="nav-item">Tentang</a>
+            <a href="Jadwal.html" class="nav-item active">Jadwal</a>
+        </div>
+        <div class="nav-center">
+            <a href="Ramadhan.html" class="nav-item ">Ramadhan</a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-item">Doa</a>
+            <a href="#" class="nav-item">Kontak</a>
+            <a href="#" class="nav-item">Lainnya</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Ramadhan: Jadwal Sholat & Kalender Puasa</h1>
+        <p id="tanggal-hari"></p>
+        <button class="toggle-btn" onclick="toggleMode()">🌙 Ganti Mode Gelap/Terang</button>
+        <button class="print-btn" onclick="window.print()">🖨 Cetak Halaman</button>
+    </header>
+
+    <div class="container">
+        <div class="jadwal-sholat">
+            <h2>Jadwal Sholat Hari Ini</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imsak</th>
+                        <th>Subuh</th>
+                        <th>Dzuhur</th>
+                        <th>Ashar</th>
+                        <th>Maghrib</th>
+                        <th>Isya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="imsak">04:20</td>
+                        <td id="subuh">04:30</td>
+                        <td id="dzuhur">12:00</td>
+                        <td id="ashar">15:15</td>
+                        <td id="maghrib">18:00</td>
+                        <td id="isya">19:15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="kalender-puasa">
+            <h2>Kalender Puasa Ramadhan 1446 H</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal (Masehi)</th>
+                        <th>Hari</th>
+                        <th>Puasa ke-</th>
+                    </tr>
+                </thead>
+                <tbody id="kalender-body"></tbody>
+            </table>
+        </div>
+
+        <div class="fitur-tambahan">
+            <h2>Fitur Tambahan</h2>
+            <p id="puasa-ke"></p>
+            <p id="countdown"></p>
+            <p id="salam-berbuka"></p>
+            <div id="countdown-box"
+                style="margin-top:10px; padding:15px; background:#ffe082; border-radius:10px; text-align:center; font-weight:bold;">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Jadwal Ramadhan - Dibuat dengan semangat Ramadhan ❤️
+    </div>
+
+
+
+
+
+    <script>
+        // Animasi Fade-in //
+        document.addEventListener("DOMContentLoaded", function () {
+            // Tambahkan efek slide-in ke halaman saat dimuat
+            document.body.classList.add("fade-in");
+
+            // Tangkap semua link navbar
+            let navLinks = document.querySelectorAll(".nav-item");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault(); // Cegah perpindahan langsung
+
+                    let targetUrl = this.href; // Ambil URL tujuan
+
+                    // Tambahkan animasi keluar
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = targetUrl; // Pindah halaman setelah animasi selesai
+                    }, 800); // Delay sesuai durasi animasi
+                });
+            });
+        });
+
+
+
+        // Waktu Dan kalender puasa //
+        const hariList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+        const bulanList = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        const today = new Date();
+        const hari = hariList[today.getDay()];
+        const tanggal = `${hari}, ${today.getDate()} ${bulanList[today.getMonth()]} ${today.getFullYear()}`;
+        document.getElementById("tanggal-hari").innerText = tanggal;
+
+        const kalenderBody = document.getElementById("kalender-body");
+        const ramadhanStart = new Date(2025, 2, 1);
+        for (let i = 0; i < 30; i++) {
+            const tgl = new Date(ramadhanStart);
+            tgl.setDate(ramadhanStart.getDate() + i);
+            const hariNama = hariList[tgl.getDay()];
+            const row = `<tr><td>${tgl.getDate()} ${bulanList[tgl.getMonth()]} ${tgl.getFullYear()}</td><td>${hariNama}</td><td>Puasa ke-${i + 1}</td></tr>`;
+            kalenderBody.innerHTML += row;
+            if (tgl.toDateString() === today.toDateString()) {
+                document.getElementById("puasa-ke").innerText = `Hari ini adalah Puasa ke-${i + 1}`;
+            }
+        }
+
+        const maghribWaktu = document.getElementById("maghrib").innerText;
+        const [jam, menit] = maghribWaktu.split(":").map(Number);
+        const waktuMaghrib = new Date();
+        waktuMaghrib.setHours(jam);
+        waktuMaghrib.setMinutes(menit);
+        waktuMaghrib.setSeconds(0);
+
+        function updateCountdown() {
+            const now = new Date();
+            const selisih = waktuMaghrib - now;
+            const salamEl = document.getElementById("salam-berbuka");
+            const countdownBox = document.getElementById("countdown-box");
+            if (selisih > 0) {
+                const sisaMenit = Math.floor(selisih / 60000);
+                const sisaDetik = Math.floor((selisih % 60000) / 1000);
+                document.getElementById("countdown").innerText = `Waktu menuju berbuka: ${sisaMenit} menit ${sisaDetik} detik`;
+                countdownBox.innerText = `🕓 ${sisaMenit} menit ${sisaDetik} detik lagi menuju berbuka!`;
+                salamEl.innerText = "";
+            } else {
+                document.getElementById("countdown").innerText = `Sudah masuk waktu berbuka.`;
+                countdownBox.innerText = "🌙 Sudah waktunya berbuka!";
+                salamEl.innerText = "Selamat berbuka puasa, semoga ibadah hari ini diterima Allah SWT.";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        async function fetchJadwalSholat() {
+            const jadwal = {
+                imsak: "04:20",
+                subuh: "04:30",
+                dzuhur: "12:00",
+                ashar: "15:15",
+                maghrib: "18:00",
+                isya: "19:15"
+            };
+            for (const key in jadwal) {
+                const el = document.getElementById(key);
+                if (el) el.innerText = jadwal[key];
+            }
+        }
+        fetchJadwalSholat();
+    </script>
+</body>
+
+</html>

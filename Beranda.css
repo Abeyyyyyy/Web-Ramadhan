@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+  height: 100%;
+  background-color: #d67c1c;
+  text-align: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #000;
+}
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+}
+.nav-center {
+  flex-grow: 1;
+  text-align: center;
+  margin-top: 1.5vh;
+}
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+.active {
+  background-color: #fce6a4;
+  color: black;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+/* Slide-in dari kiri */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animasi fade-in dan fade-out */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 3;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 3;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Kelas animasi */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  display: block;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.image-placeholder {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+  border: 2px solid blue;
+  margin-right: 20px;
+}
+
+.text-content {
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 29px;
+  margin-bottom: 5px;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.content-box {
+  background-color: #e0c39b;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  height: 20%;
+  margin: 20px auto;
+  text-align: center;
+  position: relative;
+}
+
+.info-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 19px;
+  margin-top: 30px;
+}
+
+.info-text a {
+  text-decoration: none;
+  color: black;
+}
+
+.info-text a:hover {
+  color: #d67c1c;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #2d2d2d;
+  color: #fff;
+  padding: 40px 0;
+  margin-top: 30px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-section {
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #f2f2f2;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #f39c12;
+}
+
+/* Social media icons */
+.social-links i {
+  margin-right: 10px;
+}
+
+.social-links li a {
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: #f39c12;
+  transform: scale(1.1);
+}
+
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  background-color: #e79537;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 20px;
+  color: #000;
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.content h1 {
+  text-align: center;
+  font-size: 28px;
+}
+.content p {
+  text-align: center;
+  font-size: 17px;
+}
+.content {
+  background-color: #2d2d2d;
+  margin-top: 90px;
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+
+/* Scrollbar untuk browser berbasis WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #f7e6a2; /* Warna latar belakang scrollbar */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #D98324, #000000); /* Gradasi hijau */
+  border-radius: 10px;
+  border: 2px solid #f7e6a2;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #F2F6D0, #D98324);
+}

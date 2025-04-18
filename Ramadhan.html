@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramadhan</title>
+  <link rel="stylesheet" href="Ramadhan.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+        <a href="Beranda.html" class="nav-item">Beranda</a>
+        <a href="#" class="nav-item">Tentang</a>
+        <a href="Jadwal.html" class="nav-item">Jadwal</a>
+    </div>
+    <div class="nav-center">
+        <a href="#" class="nav-item active">Ramadhan</a>
+    </div>
+    <div class="nav-right">
+        <a href="#" class="nav-item">Doa</a>
+        <a href="#" class="nav-item">Kontak</a>
+        <a href="#" class="nav-item">Lainnya</a>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h2>Selamat Datang di Website Ramadhan</h2>
+    <div class="video-container">
+        Video
+    </div>
+</div>
+
+
+<footer>
+  <img src="Logo-Sabit.png" class="footer-img" id="leftImg">
+  <div class="footer-content">
+      <p>Contact Me;</p>
+      <p>email: Info_Ramadhan.com</p>
+      <p>Follow us: 
+          <a href="#">Linked</a> | 
+          <a href="#">WhatsApp</a> | 
+          <a href="#">Instagram</a>
+      </p>
+  </div>
+  <img src="Logo-Sabit.png" class="footer-img" id="rightImg">
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Tambahkan efek slide-in ke halaman saat dimuat
+    document.body.classList.add("fade-in");
+
+    // Tangkap semua link navbar
+    let navLinks = document.querySelectorAll(".nav-item");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Cegah perpindahan langsung
+
+            let targetUrl = this.href; // Ambil URL tujuan
+            
+            // Tambahkan animasi keluar
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+                window.location.href = targetUrl; // Pindah halaman setelah animasi selesai
+            }, 800); // Delay sesuai durasi animasi
+        });
+    });
+});
+</script>
+
+</body>
+</html>
